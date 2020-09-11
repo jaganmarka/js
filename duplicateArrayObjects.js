@@ -10,16 +10,50 @@ const listOfTags = [
 const unique = [];
 listOfTags.map(x => unique.filter(a => a.label == x.label && a.color == x.color).length > 0 ? null : unique.push(x));
 
-console.log(unique);
+console.log(unique, 'unique');
 
 //for single key
 const emails = [
-    { email: "a@gmail.com" },
-    { email: "b@gmail.com" },
-    { email: "c@gmail.com" },
-    { email: "a@gmail.com" },
-    { email: "c@gmail.com" }
+    { email: "a@gmail.com", k: "s" },
+    { email: "b@gmail.com", k: "s" },
+    { email: "c@gmail.com", k: "s" },
+    { email: "a@gmail.com", k: "s" },
+    { email: "c@gmail.com", k: "s" }
 ]
-emails.filter(function ({ email }) {
+const k = emails.filter(function ({ email }) {
     return !this[email] && (this[email] = email);
 }, {})
+console.log(k, 'kkk');
+
+const c = listOfTags.some(i => {
+    if (i.label === 'Sunshine') {
+        console.log(i, '1111')
+        return true;
+    } else {
+        console.log(i, '1111')
+        return false;
+    }
+});
+console.log(c, 'aaaa')
+
+const a = listOfTags.filter(i => i.label === 'Hello');
+console.log(a, 'aaaa')
+const b = listOfTags.filter(i => {
+    if (i.label === 'Hello') {
+        return true;
+    }
+});
+let i = 0;
+let m = [];
+do {
+    if (listOfTags[i].label === 'Hello') {
+        m = [...m, listOfTags[i]];
+    }
+    i++;
+} while (i < listOfTags.length) {
+    console.log(m, 'sjdhfdskjf')
+}
+console.log(b, 'bbbb')
+console.log(listOfTags, 'listOfTags')
+
+
